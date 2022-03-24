@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
     Rigidbody rb;
+    AudioSource audioSource;
     [SerializeField] float rocketBoost = 1000f;
     [SerializeField] float rotateSpeed = 135f;
 
     void Start(){
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update(){
@@ -16,9 +18,20 @@ public class Movement : MonoBehaviour {
         ProcessRotation();
     }
 
+    // void FixedUpdate() {
+    //     ProcessThrust();
+    //     ProcessRotation();
+    // }
+
     void ProcessThrust(){
         if(Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
+
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+
+        }else{
+            audioSource.Stop();
         }
     }
 
@@ -30,8 +43,8 @@ public class Movement : MonoBehaviour {
         }
     }
 
-    void RotateSpeedCalcs(float rotateThisFrame){
-        rb.freezeRotation = true; //freeze rotation so we can manually rotate
+    void RotateSpeedCalcs(float rotateThisFrame){ // reference parameter for rotateSpeed
+        rb.freezeRotation = true; // freeze rotation so we can manually rotate
         transform.Rotate(Vector3.forward * rotateThisFrame * Time.deltaTime);
         rb.freezeRotation = false; // unfreezing rotation so the physics system cam take over
     }
