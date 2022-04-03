@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 811222215694539037}
   - component: {fileID: 1914189182}
   - component: {fileID: 1914189181}
+  - component: {fileID: 17377396565652628}
   - component: {fileID: 1914189180}
   - component: {fileID: 1771307025}
   m_Layer: 0
@@ -558,6 +559,18 @@ CapsuleCollider:
   m_Height: 6.481147
   m_Direction: 1
   m_Center: {x: 0.020889003, y: 0.8003903, z: -0.09190913}
+--- !u!114 &17377396565652628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854619882081110099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c6fbbe785eb884f8b8b6ea8dd783a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1914189180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +596,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c8be1b72128809468244bccfbbcbe85, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

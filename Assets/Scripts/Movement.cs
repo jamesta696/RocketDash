@@ -18,11 +18,6 @@ public class Movement : MonoBehaviour {
         ProcessRotation();
     }
 
-    // void FixedUpdate() {
-    //     ProcessThrust();
-    //     ProcessRotation();
-    // }
-
     void ProcessThrust(){
         if(Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
