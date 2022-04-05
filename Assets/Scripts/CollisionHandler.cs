@@ -9,6 +9,8 @@ public class CollisionHandler : MonoBehaviour
     int lastSceneIndex;
     int nextSceneIndex;
 
+    [SerializeField] float timeDelay = 2f;
+
     Movement movement_script;
 
     void Start(){
@@ -25,21 +27,25 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Collided with Friendly");
                 break;
             case "Finish":
-                LoadNextLevel();
+                OnFinishSequence();
                 break;
             case "Fuel":
                 Debug.Log("You got more Fuel!");
                 break;
             default:
-                Debug.Log("You Crashed!");
-                StartCrashSequence();
+                OnCrashSequence();
                 break;
         }
     }
 
-    void StartCrashSequence(){
+    void OnFinishSequence(){
         movement_script.enabled = false;
-        Invoke("ReloadScene", 2f);
+        Invoke("LoadNextLevel", timeDelay);
+    }
+
+    void OnCrashSequence(){
+        movement_script.enabled = false;
+        Invoke("ReloadScene", timeDelay);
     }
 
     void ReloadScene(){
