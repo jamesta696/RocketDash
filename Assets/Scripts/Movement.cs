@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
     Rigidbody rb;
     AudioSource audioSource;
+    [SerializeField] AudioClip rocketBoostSFX;
     [SerializeField] float rocketBoost = 1000f;
     [SerializeField] float rotateSpeed = 135f;
 
@@ -23,7 +24,7 @@ public class Movement : MonoBehaviour {
             rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
 
             if(!audioSource.isPlaying)
-                audioSource.Play();
+                audioSource.PlayOneShot(rocketBoostSFX);
 
         }else{
             audioSource.Stop();
