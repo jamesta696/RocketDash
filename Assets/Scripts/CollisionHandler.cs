@@ -29,9 +29,6 @@ public class CollisionHandler : MonoBehaviour
             case "Finish":
                 OnFinishSequence();
                 break;
-            case "Fuel":
-                Debug.Log("You got more Fuel!");
-                break;
             default:
                 OnCrashSequence();
                 break;
