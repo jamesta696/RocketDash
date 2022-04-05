@@ -40,12 +40,14 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnFinishSequence(){
+        audioSource.Stop();
         audioSource.PlayOneShot(levelCompleteSFX);
         movement_script.enabled = false;
         Invoke("LoadNextLevel", timeDelay);
     }
 
     void OnCrashSequence(){
+        audioSource.Stop();
         audioSource.PlayOneShot(crashSFX);
         movement_script.enabled = false;
         Invoke("ReloadScene", timeDelay);
