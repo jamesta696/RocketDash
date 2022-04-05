@@ -10,7 +10,10 @@ public class CollisionHandler : MonoBehaviour
     int nextSceneIndex;
 
     [SerializeField] float timeDelay = 2f;
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] AudioClip levelCompleteSFX;
 
+    AudioSource audioSource;
     Movement movement_script;
 
     void Start(){
@@ -18,6 +21,7 @@ public class CollisionHandler : MonoBehaviour
         lastSceneIndex = SceneManager.sceneCountInBuildSettings - 1;
         nextSceneIndex = currentSceneIndex < lastSceneIndex ? currentSceneIndex + 1 : 0;
 
+        audioSource = GetComponent<AudioSource>();
         movement_script = GetComponent<Movement>();
     }
 
@@ -36,11 +40,13 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnFinishSequence(){
+        audioSource.PlayOneShot(levelCompleteSFX);
         movement_script.enabled = false;
         Invoke("LoadNextLevel", timeDelay);
     }
 
     void OnCrashSequence(){
+        audioSource.PlayOneShot(crashSFX);
         movement_script.enabled = false;
         Invoke("ReloadScene", timeDelay);
     }

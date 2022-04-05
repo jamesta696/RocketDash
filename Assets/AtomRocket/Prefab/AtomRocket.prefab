@@ -572,6 +572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDelay: 2
+  crashSFX: {fileID: 8300000, guid: 2062323152e73a04a8f8f042f076f2de, type: 3}
+  levelCompleteSFX: {fileID: 8300000, guid: 2ab271837ee6bde42ad5211976d80e07, type: 3}
 --- !u!114 &1914189180
 MonoBehaviour:
   m_ObjectHideFlags: 0
