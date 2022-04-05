@@ -13,8 +13,14 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip crashSFX;
     [SerializeField] AudioClip levelCompleteSFX;
 
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem levelCompleteParticles;
+
     AudioSource audioSource;
+    ParticleSystem particleSource;
     Movement movement_script;
+
+    bool isTransitioning = false;
 
     void Start(){
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -26,6 +32,10 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
+        if(isTransitioning){
+            return;
+        }
+        
         switch(other.gameObject.tag){
             case "Friendly":
                 Debug.Log("Collided with Friendly");
@@ -40,15 +50,19 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnFinishSequence(){
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(levelCompleteSFX);
+        levelCompleteParticles.Play();
         movement_script.enabled = false;
         Invoke("LoadNextLevel", timeDelay);
     }
 
     void OnCrashSequence(){
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(crashSFX);
+        crashParticles.Play();
         movement_script.enabled = false;
         Invoke("ReloadScene", timeDelay);
     }
