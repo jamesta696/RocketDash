@@ -21,6 +21,7 @@ public class CollisionHandler : MonoBehaviour
     Movement movement_script;
 
     bool isTransitioning = false;
+    bool collisionDisabled = false;
 
     void Start(){
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -31,11 +32,23 @@ public class CollisionHandler : MonoBehaviour
         movement_script = GetComponent<Movement>();
     }
 
+    void Update(){
+        DebugKeysHandler();
+    }
+
+    void DebugKeysHandler(){
+        if(Input.GetKeyDown(KeyCode.L)){
+            LoadNextLevel();
+        }else if(Input.GetKeyDown(KeyCode.C)){
+            collisionDisabled = !collisionDisabled;
+        }
+    }
+
     void OnCollisionEnter(Collision other) {
-        if(isTransitioning){
+        if(isTransitioning || collisionDisabled){
             return;
         }
-        
+
         switch(other.gameObject.tag){
             case "Friendly":
                 Debug.Log("Collided with Friendly");
@@ -71,7 +84,7 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
-    void LoadNextLevel(){
+    public void LoadNextLevel(){
         SceneManager.LoadScene(nextSceneIndex);
     }
 }

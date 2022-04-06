@@ -449,10 +449,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1914189180, guid: 6ace0503f5f5e6e44831975f9aeed05d, type: 3}
-      propertyPath: leftBoosterParticles
-      value: 
-      objectReference: {fileID: 1914189179}
     - target: {fileID: 811222215694539037, guid: 6ace0503f5f5e6e44831975f9aeed05d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -501,13 +497,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: AtomRocket
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3557529257941798032, guid: 6ace0503f5f5e6e44831975f9aeed05d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6ace0503f5f5e6e44831975f9aeed05d, type: 3}
---- !u!198 &1914189179 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5073935674381709918, guid: 6ace0503f5f5e6e44831975f9aeed05d, type: 3}
-  m_PrefabInstance: {fileID: 1914189178}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &236986559717266989
 PrefabInstance:
   m_ObjectHideFlags: 0
