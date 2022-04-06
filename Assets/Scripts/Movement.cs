@@ -28,29 +28,47 @@ public class Movement : MonoBehaviour {
     void ProcessThrust(){
         if(Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
-
-            if(!audioSource.isPlaying && !mainBoosterParticles.isPlaying){
-                audioSource.PlayOneShot(rocketBoostSFX);
-                mainBoosterParticles.Play();
-            }
-                
+            StartMainBoosterEfx(); 
         }else{
-            audioSource.Stop();
-            mainBoosterParticles.Stop();
+            StopMainBoosterEfx();
         }
     }
 
     void ProcessRotation(){
         if(Input.GetKey(KeyCode.A)){
-            RotateSpeedCalcs(-rotateSpeed);
-            PlayBoosterParticles(leftBoosterParticles);
+            ApplyLeftBoosterPhysics();
             
         }else if(Input.GetKey(KeyCode.D)){
-            RotateSpeedCalcs(rotateSpeed);
-            PlayBoosterParticles(rightBoosterParticles);
+            ApplyRightBoosterPhysics();
         }else{
-            leftBoosterParticles.Stop();
-            rightBoosterParticles.Stop();
+            StopSideThrustersParticles();
+        }
+    }
+
+    void StopSideThrustersParticles(){
+        leftBoosterParticles.Stop();
+        rightBoosterParticles.Stop();
+    }
+
+    void ApplyRightBoosterPhysics(){
+        RotateSpeedCalcs(rotateSpeed);
+        PlayBoosterParticles(rightBoosterParticles);
+    }
+
+    void ApplyLeftBoosterPhysics(){
+        RotateSpeedCalcs(-rotateSpeed);
+        PlayBoosterParticles(leftBoosterParticles);
+    }
+
+    void StopMainBoosterEfx(){
+        audioSource.Stop();
+        mainBoosterParticles.Stop();
+    }
+
+    void StartMainBoosterEfx(){
+        if(!audioSource.isPlaying && !mainBoosterParticles.isPlaying){
+            audioSource.PlayOneShot(rocketBoostSFX);
+            mainBoosterParticles.Play();
         }
     }
 
