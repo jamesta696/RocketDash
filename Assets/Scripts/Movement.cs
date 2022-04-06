@@ -5,8 +5,13 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
     Rigidbody rb;
     AudioSource audioSource;
-    
+
     [SerializeField] AudioClip rocketBoostSFX;
+
+    [SerializeField] ParticleSystem mainBoosterParticles;
+    [SerializeField] ParticleSystem leftBoosterParticles;
+    [SerializeField] ParticleSystem rightBoosterParticles;
+
     [SerializeField] float rocketBoost = 1000f;
     [SerializeField] float rotateSpeed = 135f;
 
@@ -24,20 +29,34 @@ public class Movement : MonoBehaviour {
         if(Input.GetKey(KeyCode.Space)){
             rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
 
-            if(!audioSource.isPlaying)
+            if(!audioSource.isPlaying && !mainBoosterParticles.isPlaying){
                 audioSource.PlayOneShot(rocketBoostSFX);
-
+                mainBoosterParticles.Play();
+            }
+                
         }else{
             audioSource.Stop();
+            mainBoosterParticles.Stop();
         }
     }
 
     void ProcessRotation(){
         if(Input.GetKey(KeyCode.A)){
             RotateSpeedCalcs(-rotateSpeed);
+            PlayBoosterParticles(leftBoosterParticles);
+            
         }else if(Input.GetKey(KeyCode.D)){
             RotateSpeedCalcs(rotateSpeed);
+            PlayBoosterParticles(rightBoosterParticles);
+        }else{
+            leftBoosterParticles.Stop();
+            rightBoosterParticles.Stop();
         }
+    }
+
+    void PlayBoosterParticles(ParticleSystem boosterParticle){
+        if(!boosterParticle.isPlaying)
+            boosterParticle.Play();
     }
 
     void RotateSpeedCalcs(float rotateThisFrame){ // reference parameter for rotateSpeed
