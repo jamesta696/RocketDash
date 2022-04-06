@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour {
 
     void ProcessThrust(){
         if(Input.GetKey(KeyCode.Space)){
-            rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
             StartMainBoosterEfx(); 
         }else{
             StopMainBoosterEfx();
@@ -66,6 +65,7 @@ public class Movement : MonoBehaviour {
     }
 
     void StartMainBoosterEfx(){
+        rb.AddRelativeForce(Vector3.up * rocketBoost * Time.deltaTime);
         if(!audioSource.isPlaying && !mainBoosterParticles.isPlaying){
             audioSource.PlayOneShot(rocketBoostSFX);
             mainBoosterParticles.Play();
