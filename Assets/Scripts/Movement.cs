@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour {
     void Start(){
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
     }
 
     void Update(){

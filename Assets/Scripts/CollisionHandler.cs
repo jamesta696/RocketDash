@@ -32,9 +32,7 @@ public class CollisionHandler : MonoBehaviour
         movement_script = GetComponent<Movement>();
     }
 
-    void Update(){
-        DebugKeysHandler();
-    }
+    void Update() => DebugKeysHandler();
 
     void DebugKeysHandler(){
         if(Input.GetKeyDown(KeyCode.L)){
@@ -63,28 +61,29 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void OnFinishSequence(){
-        isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(levelCompleteSFX);
-        levelCompleteParticles.Play();
-        movement_script.enabled = false;
+        SetFlagSequencer();
+        InitEffects(levelCompleteSFX,levelCompleteParticles);
         Invoke("LoadNextLevel", timeDelay);
     }
 
     void OnCrashSequence(){
-        isTransitioning = true;
-        audioSource.Stop();
-        audioSource.PlayOneShot(crashSFX);
-        crashParticles.Play();
-        movement_script.enabled = false;
+        SetFlagSequencer();
+        InitEffects(crashSFX, crashParticles);
         Invoke("ReloadScene", timeDelay);
     }
 
-    void ReloadScene(){
-        SceneManager.LoadScene(currentSceneIndex);
+    void InitEffects(AudioClip sfx, ParticleSystem efx){
+        audioSource.Stop();
+        audioSource.PlayOneShot(sfx);
+        efx.Play();
     }
 
-    public void LoadNextLevel(){
-        SceneManager.LoadScene(nextSceneIndex);
+    void SetFlagSequencer(){
+        isTransitioning = true;
+        movement_script.enabled = false;
     }
+
+    void ReloadScene() => SceneManager.LoadScene(currentSceneIndex);
+
+    void LoadNextLevel() => SceneManager.LoadScene(nextSceneIndex);
 }
