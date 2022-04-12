@@ -7,6 +7,7 @@ TagManager:
   - Friendly
   - Fuel
   - SpinningAsteroids
+  - Ground
   layers:
   - Default
   - TransparentFX
