@@ -8,6 +8,7 @@ TagManager:
   - Fuel
   - SpinningAsteroids
   - Ground
+  - FallingAsteroid
   layers:
   - Default
   - TransparentFX

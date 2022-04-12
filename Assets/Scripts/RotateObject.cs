@@ -9,9 +9,10 @@ public class RotateObject : MonoBehaviour
     [SerializeField] float zVal = 0f;
 
     public GameObject[] floatingAsteroids;
+    public GameObject[] fallingAsteroid;
 
     void Start(){
-        floatingAsteroids = GameObject.FindGameObjectsWithTag("SpinningAsteroids");    
+        floatingAsteroids = GameObject.FindGameObjectsWithTag("SpinningAsteroids");
     }
 
     void Update(){
