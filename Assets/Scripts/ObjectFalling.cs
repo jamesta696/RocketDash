@@ -11,7 +11,7 @@ public class ObjectFalling : MonoBehaviour
     [SerializeField] float zVal = 0f;
 
     [SerializeField] Vector3 movementVector;
-    [SerializeField] [Range(0,1)] float calculatedRange;
+                     float calculatedRange;
     [SerializeField] float movementSpeed = .08f;
 
     [SerializeField] AudioClip objectFall_sfx;
@@ -20,31 +20,38 @@ public class ObjectFalling : MonoBehaviour
     AudioSource audioSource;
     ParticleSystem particleSource;
 
-    GameObject fallingAsteroids;
+    GameObject[] fallingAsteroids;
 
     bool isTransitioning = false;
 
     void Start(){
         startPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
-        fallingAsteroids = GameObject.FindGameObjectWithTag("FallingAsteroid");
+        fallingAsteroids = GameObject.FindGameObjectsWithTag("FallingAsteroid");
     }
 
     void Update(){
         ObjectSpin();
+        CalculateObjectTrajectory();
+    }
 
+    void CalculateObjectTrajectory(){
         Vector3 offset = movementVector * calculatedRange;
         transform.position = startPosition + offset;
         calculatedRange += Time.deltaTime * movementSpeed;
     }
 
-    void OnCollisionEnter(Collision other) {
+    void OnCollisionEnter(Collision collision) {
         if(isTransitioning){
             return;
         }
         SetFlagSequencer();
         InitEffects(objectFall_sfx, objectCrash_efx);
-        DestroyCurrentObj();
+        Invoke("DestroyCurrentObj", 2f);
+    }
+
+    void DestroyCurrentObj(){
+        gameObject.SetActive(!gameObject.activeInHierarchy);
     }
 
     void SetFlagSequencer(){
@@ -57,14 +64,11 @@ public class ObjectFalling : MonoBehaviour
         efx.Play();
     }
 
-    void DestroyCurrentObj(){
-        if(this.gameObject != null){
-            Destroy(this.gameObject,3f);
-        }
-    }
-
     void ObjectSpin(){
         Vector3 spinningRotation = new Vector3(xVal, yVal, zVal);
-        fallingAsteroids.GetComponent<Transform>().Rotate(spinningRotation);
+
+        foreach(GameObject asteroid in fallingAsteroids){
+            asteroid.GetComponent<Transform>().Rotate(spinningRotation);
+        }
     }
 }
