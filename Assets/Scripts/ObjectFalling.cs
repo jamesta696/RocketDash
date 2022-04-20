@@ -47,7 +47,7 @@ public class ObjectFalling : MonoBehaviour
         }
         SetFlagSequencer();
         InitEffects(objectFall_sfx, objectCrash_efx);
-        Invoke("DestroyCurrentObj", 2f);
+        Invoke("DestroyCurrentObj", 1.5f);
     }
 
     void DestroyCurrentObj(){
