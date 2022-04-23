@@ -2243,7 +2243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.18438455, y: 0.0000000035649155, z: -6.687826e-10, w: 0.9828542}
+  m_LocalRotation: {x: 0.18438457, y: -0.0000000047962514, z: 8.9978225e-10, w: 0.9828542}
   m_LocalPosition: {x: -24.6, y: 8.79, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3005,7 +3005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 1ee76940f560f654fbbe86776c26942b, type: 3}
       propertyPath: m_TagString
-      value: SpinningAsteroids
+      value: RotatingObstacles
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 1ee76940f560f654fbbe86776c26942b, type: 3}
       propertyPath: m_RootOrder
@@ -3089,8 +3089,6 @@ MonoBehaviour:
   xVal: 1
   yVal: 0.005
   zVal: 0.003
-  floatingAsteroids: []
-  fallingAsteroid: []
 --- !u!4 &1496236009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 1ee76940f560f654fbbe86776c26942b, type: 3}
@@ -3893,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
       propertyPath: m_TagString
-      value: SpinningAsteroids
+      value: RotatingObstacles
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
       propertyPath: m_RootOrder
@@ -3969,8 +3967,6 @@ MonoBehaviour:
   xVal: 1
   yVal: 0.07
   zVal: 0.03
-  floatingAsteroids: []
-  fallingAsteroid: []
 --- !u!4 &1718180060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
@@ -4191,7 +4187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
       propertyPath: m_TagString
-      value: SpinningAsteroids
+      value: RotatingObstacles
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
       propertyPath: m_RootOrder
@@ -4271,8 +4267,6 @@ MonoBehaviour:
   xVal: 1
   yVal: 0.03
   zVal: 0.009
-  floatingAsteroids: []
-  fallingAsteroid: []
 --- !u!4 &1808103456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 0c076a1a077b8b04aaa5c16a2af6d4fe, type: 3}
@@ -4539,7 +4533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 42b65c30a64bfc9438498b2acee449a8, type: 3}
       propertyPath: m_TagString
-      value: SpinningAsteroids
+      value: RotatingObstacles
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 42b65c30a64bfc9438498b2acee449a8, type: 3}
       propertyPath: m_RootOrder
@@ -4619,8 +4613,6 @@ MonoBehaviour:
   xVal: 1
   yVal: 0.03
   zVal: 0.006
-  floatingAsteroids: []
-  fallingAsteroid: []
 --- !u!4 &2042311452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 42b65c30a64bfc9438498b2acee449a8, type: 3}
@@ -5040,15 +5032,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6286626489044478887, guid: 7f0aaa96c55c1b946b84a636720556c7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18438455
+      value: 0.18438457
       objectReference: {fileID: 0}
     - target: {fileID: 6286626489044478887, guid: 7f0aaa96c55c1b946b84a636720556c7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000035649155
+      value: -0.0000000047962514
       objectReference: {fileID: 0}
     - target: {fileID: 6286626489044478887, guid: 7f0aaa96c55c1b946b84a636720556c7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -6.687826e-10
+      value: 8.9978225e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6286626489044478887, guid: 7f0aaa96c55c1b946b84a636720556c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

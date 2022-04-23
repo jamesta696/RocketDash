@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RotateObject : MonoBehaviour
@@ -8,18 +9,21 @@ public class RotateObject : MonoBehaviour
     [SerializeField] float yVal = 6f;
     [SerializeField] float zVal = 0f;
 
-    public GameObject[] floatingAsteroids;
-    public GameObject[] fallingAsteroid;
+    GameObject[] RotatingObstacles;
 
     void Start(){
-        floatingAsteroids = GameObject.FindGameObjectsWithTag("SpinningAsteroids");
+        GetAllTags();
+    }
+
+    void GetAllTags(){
+        RotatingObstacles = GameObject.FindGameObjectsWithTag("RotatingObstacles");
     }
 
     void Update(){
         Vector3 spinningRotation = new Vector3(xVal, yVal, zVal);
         
-        foreach(GameObject asteroid in floatingAsteroids){
-            asteroid.GetComponent<Transform>().Rotate(spinningRotation);
+        foreach(GameObject obstacle in RotatingObstacles){
+            obstacle.GetComponent<Transform>().Rotate(spinningRotation);
         }
     }
 }

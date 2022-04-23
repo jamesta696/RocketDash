@@ -9,6 +9,9 @@ TagManager:
   - SpinningAsteroids
   - Ground
   - FallingAsteroid
+  - enemy
+  - Spikes
+  - RotatingObstacles
   layers:
   - Default
   - TransparentFX

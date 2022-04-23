@@ -10,9 +10,9 @@ public class ObjectFalling : MonoBehaviour
     [SerializeField] float yVal = 6f;
     [SerializeField] float zVal = 0f;
 
-    [SerializeField] Vector3 movementVector;
-                     float calculatedRange;
+    [SerializeField] Vector3 movementVector;        
     [SerializeField] float movementSpeed = .08f;
+                     float calculatedRange;
 
     [SerializeField] AudioClip objectFall_sfx;
     [SerializeField] ParticleSystem objectCrash_efx;
