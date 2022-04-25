@@ -17,7 +17,7 @@ public class Oscillation : MonoBehaviour
         OscillationMovement();
     }
 
-    public void OscillationMovement(){
+    void OscillationMovement(){
         if(period == 0){return;}
 
         float cycles = Time.time / period;

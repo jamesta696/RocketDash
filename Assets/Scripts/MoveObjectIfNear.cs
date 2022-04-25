@@ -7,36 +7,41 @@ public class MoveObjectIfNear : MonoBehaviour
     GameObject Player;
     GameObject EnemyRadar;
 
-    Oscillation OscillationScript;
     Vector3 startingPosition;
+
+    [SerializeField] Transform start;
+    [SerializeField] Transform end;
+
     void Start()
     {
-        OscillationScript = GetComponent<Oscillation>();
-        OscillationScript.enabled = false;
-
         EnemyRadar = GameObject.FindGameObjectWithTag("EnemyRadar");
         Player = GameObject.FindGameObjectWithTag("Player");
         startingPosition = transform.position;
+
     }
 
     void Update(){
         CheckIfPlayerIsNearEnemyRadar();
     }
 
+    void onDrawGizmos(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(start.position, end.position);
+    }
+
     void CheckIfPlayerIsNearEnemyRadar(){
         if((EnemyRadar.transform.position - Player.transform.position).sqrMagnitude < 150.0f){
-            EnableOscillationScript();
+           GoToTargetPosition();
         }else{
-            EnemyRadar.transform.position = startingPosition;
-            DisableOsciallationScript();
+            BackToStartingPosition();
         }
     }
 
-    void EnableOscillationScript(){
-        OscillationScript.enabled = true;
+    void GoToTargetPosition(){
+        transform.position = Vector3.Lerp(transform.position, end.position, Time.deltaTime);
     }
 
-    void DisableOsciallationScript(){
-        OscillationScript.enabled = false;
+    void BackToStartingPosition(){
+        EnemyRadar.transform.position = Vector3.Lerp(EnemyRadar.transform.position, startingPosition, Time.deltaTime * 2);
     }
 }
