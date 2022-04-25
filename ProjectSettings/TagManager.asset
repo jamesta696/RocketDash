@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - Spikes
   - RotatingObstacles
+  - EnemyRadar
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,10 @@ public class Oscillation : MonoBehaviour
     }
 
     void Update(){
+        OscillationMovement();
+    }
+
+    public void OscillationMovement(){
         if(period == 0){return;}
 
         float cycles = Time.time / period;
@@ -25,4 +29,6 @@ public class Oscillation : MonoBehaviour
         Vector3 offset = movementVector * movementFactor;
         transform.position = startingPosition + offset;
     }
+
+
 }
