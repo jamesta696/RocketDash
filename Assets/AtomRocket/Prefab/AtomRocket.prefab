@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 17377396565652628}
   - component: {fileID: 1914189180}
   - component: {fileID: 1771307025}
+  - component: {fileID: 5881419731456169341}
   m_Layer: 0
   m_Name: AtomRocket
   m_TagString: Player
@@ -1068,6 +1069,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5881419731456169341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854619882081110099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d86f4a413686fa4580ace9e1efd3f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8972606480291121315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1259,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 179045780815470338, guid: 3cf692a56f30a4c2ba321db57e966c0e, type: 3}
+      propertyPath: lengthInSec
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179045780815470338, guid: 3cf692a56f30a4c2ba321db57e966c0e, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -1287,7 +1304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3495699196929113995, guid: 3cf692a56f30a4c2ba321db57e966c0e, type: 3}
       propertyPath: m_SortingFudge
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 3495699196929113995, guid: 3cf692a56f30a4c2ba321db57e966c0e, type: 3}
       propertyPath: m_Materials.Array.size
@@ -2261,17 +2278,33 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.42138368
       objectReference: {fileID: 0}
+    - target: {fileID: 4069597782980931555, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitProbability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002776249814129842, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: cullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002776249814129842, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: SubModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002776249814129842, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8317580919981596196, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8317580919981596196, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2503954
+      value: 1.1559906
       objectReference: {fileID: 0}
     - target: {fileID: 8317580919981596196, guid: a3553fd250eb92d4091bebde350c6739, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.069655
+      value: 4.386671
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3553fd250eb92d4091bebde350c6739, type: 3}

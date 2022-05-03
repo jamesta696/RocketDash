@@ -72,13 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 #Heavy Assets
-/Assets/Free_Rocks
-/Assets/Real\ Stars\ Skybox
-/Assets/Rocks\ and\ Boulders\ 2
-/Assets/Fire\ Particle\ Systems
-/Assets/FireIceProjectileExplosion
-/Assets/_TerrainAutoUpgrade
-/Assets/LowPoly\ Environment\ Pack
-/Assets/Runemark\ Studio
-/Assets/SimpleLowPolyNature
-/Assets/Enemy\ Spikeball
+WebGL\ Builds

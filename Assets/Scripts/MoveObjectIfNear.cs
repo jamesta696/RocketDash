@@ -31,7 +31,7 @@ public class MoveObjectIfNear : MonoBehaviour
 
     void CheckIfPlayerIsNearEnemyRadar(){
         if((EnemyRadar.transform.position - Player.transform.position).sqrMagnitude < 150.0f){
-           GoToTargetPosition();
+            GoToTargetPosition();
         }else{
             BackToStartingPosition();
         }

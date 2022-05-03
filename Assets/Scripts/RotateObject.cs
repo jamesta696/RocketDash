@@ -11,20 +11,26 @@ public class RotateObject : MonoBehaviour
     [SerializeField] float zVal = 0f;
 
     GameObject[] RotatingObstacles;
+    Vector3 spinningRotation;
 
     void Start(){
         GetAllTags();
     }
 
+    void Update(){
+        PerformRotation();
+    }    
+
     void GetAllTags(){
         RotatingObstacles = GameObject.FindGameObjectsWithTag("RotatingObstacles");
+        // Radar = GameObject.FindGameObjectsWithTag("EnemyRadar");
+        // combinedArray = RotatingObstacles.Concat(Radar).ToArray();
     }
 
-    void Update(){
-        Vector3 spinningRotation = new Vector3(xVal, yVal, zVal);
-        
-        foreach(GameObject obstacle in RotatingObstacles){
-            obstacle.GetComponent<Transform>().Rotate(spinningRotation);
+    void PerformRotation(){
+        spinningRotation = new Vector3(xVal, yVal, zVal);
+        foreach(GameObject obj in RotatingObstacles){
+            obj.transform.Rotate(spinningRotation);
         }
     }
 }
