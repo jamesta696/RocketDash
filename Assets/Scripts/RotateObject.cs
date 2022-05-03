@@ -23,8 +23,6 @@ public class RotateObject : MonoBehaviour
 
     void GetAllTags(){
         RotatingObstacles = GameObject.FindGameObjectsWithTag("RotatingObstacles");
-        // Radar = GameObject.FindGameObjectsWithTag("EnemyRadar");
-        // combinedArray = RotatingObstacles.Concat(Radar).ToArray();
     }
 
     void PerformRotation(){
